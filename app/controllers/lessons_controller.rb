@@ -44,14 +44,8 @@ class LessonsController < ApplicationController
     @chapter = Chapter.find(params[:chapter_id])
   end
 
-  def next
-    @lesson = Lesson.find(params[:id])
-    @nextlesson = Lesson.find(params[:id = @lesson.id+1])
-    return @nextlesson
-  end
-
 private
   def lesson_params
-    params.require(:lesson).permit(:name, :content)
+    params.require(:lesson).permit(:name, :content, :number)
   end
 end
