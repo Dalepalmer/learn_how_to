@@ -1,0 +1,26 @@
+<% content_for(:title, "Chapters | To Do") %>
+
+<h1><%= @chapter.name %></h1>
+
+
+
+<% if @chapter.lessons.any? %>
+  <h4>Here are the lessons for this chapter:</h4>
+  <ul>
+  <% @chapter.lessons.each do |lesson| %>
+      <li><%= link_to lesson.name, chapter_lesson_path(@chapter, lesson) %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>There are no lessons yet!</p>
+<% end %>
+
+
+<div class="col-xs-12">
+  <p><%= link_to "Add a lesson", new_chapter_lesson_path(@chapter) %></p>
+  <p><%= link_to "Edit", edit_chapter_path %></p>
+  <p><%= link_to "Delete", chapter_path(@chapter),
+  :data => {:confirm => "You sure?",
+            :method => "delete"} %></p>
+  <p><%= link_to "Return to chapters", chapters_path %></p>
+</div>

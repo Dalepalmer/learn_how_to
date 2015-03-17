@@ -7,6 +7,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'launchy'
 
 group :development do
   gem 'byebug'
@@ -17,6 +18,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :test do

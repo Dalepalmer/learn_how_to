@@ -1,0 +1,7 @@
+<% content_for(:title, "Chapters | To Do") %>
+
+<h1><%= @lesson.name %></h1>
+<h2><%= @lesson.content %></h2>
+
+<%= link_to "Next lesson", chapter_lesson_path(@lesson.next) %>
+<%= link_to "Back to Chapter", chapter_lesson(@chapter) %>
