@@ -5,17 +5,28 @@ class Lesson < ActiveRecord::Base
   validates :number, :presence => true
 
   def next
-    next_id = (self.number) + 1
-    next_lesson = Lesson.find_by(:number => next_id)
 
-    return next_lesson
+    if self.number == Lesson.last.number
+      next_lesson = Lesson.last
+      return next_lesson
+    else
+      next_id = (self.number) + 1
+      next_lesson = Lesson.find_by(:number => next_id)
+
+      return next_lesson
+    end
   end
 
-  def prev
-    prev_id = self.number - 1
-    prev_lesson = Lesson.find_by(:number => prev_id)
+    def prev
 
-    return prev_lesson
+      if self.number == Lesson.first.number
+        prev_lesson = Lesson.first
+        return prev_lesson
+      else
+        prev_id = (self.number) - 1
+        prev_lesson = Lesson.find_by(:number => prev_id)
+        return prev_lesson
+      end
+    end
+
   end
-
-end

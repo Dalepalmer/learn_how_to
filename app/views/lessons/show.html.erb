@@ -3,7 +3,7 @@
 <h1><%= @lesson.name %></h1>
 <h2><%= @lesson.content %></h2>
 
-<%= link_to "Next lesson", chapter_lesson_path(@lesson.next) %>
-<%= link_to "Previous lesson", chapter_lesson_path(@lesson.prev) %>
+<%= link_to "Next lesson", chapter_lesson_path(@chapter, @lesson.next) %>
+<%= link_to "Previous lesson", chapter_lesson_path(@chapter, @lesson.prev) %>
 
-<%= link_to "Back to Chapter", chapter_lesson(@chapter) %>
+<%= link_to "Back to Chapter", chapter_path(@chapter) %>
